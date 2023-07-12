@@ -1,0 +1,65 @@
+//                                       Assignment no-3
+// Name- Prerana Rajesh Gajare      Class-SEIT      RollNo-SI41 
+
+//Bresenhams Circle Drawing Algorithm
+#include <stdio.h>
+
+void brescircle(int xc,int yc,int r)
+{
+	int x,y,d;
+	
+	x=0;
+	y=r;
+	
+	d=3-2*r;
+	
+	do
+	{
+		printf("%d\t%d\t%d\t%d\t%d\n",x,y,xc+x,yc+y,d);
+		
+		if(d<0)
+		{
+			x=x+1;
+			d=d+4*x+6;
+		}
+		else
+		{
+			x=x+1;
+			y=y-1;
+			d=d+4*x-4*y+10;
+		}
+	}while(y>=x);
+}
+int main()
+{
+	int r,xc,yc;
+	
+	printf("\nEnter the center point:");
+	scanf("%d%d",&xc,&yc);
+	
+	printf("\nEnter the radius:");
+	scanf("%d",&r);
+	
+	brescircle(xc,yc,r);
+}
+
+******************************************************************************************OUTPUT*****************************************************************************************
+Case 1:
+
+Enter the center point:0 0
+
+Enter the radius:5
+0       5       0       5       -7
+1       5       1       5       3
+2       4       2       4       5
+3       3       3       3       15
+
+Case 2:
+
+Enter the center point:10 20
+
+Enter the radius:5
+0       5       10      25      -7
+1       5       11      25      3
+2       4       12      24      5
+3       3       13      23      15

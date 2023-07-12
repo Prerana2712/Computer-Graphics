@@ -1,0 +1,108 @@
+//                                       Assignment no-2
+
+// Name- Prerana Rajesh Gajare      Class-SEIT      RollNo-SI41 
+
+//Bresenhams Line Drawing Algorithm
+ 
+#include <stdio.h>
+#include <stdlib.h>
+int flag=0; 
+ 
+Breline(int xa,int ya,int xb,int yb)
+{
+	int dy,dx;
+	dx=xb-xa;
+	dy=yb-ya;
+	
+	if( xb<xa)
+	{
+		int temp;
+		temp=xb;
+		xb=xa;
+		xa=temp;
+	
+		temp=yb;
+		yb=ya;
+		ya=temp;
+		printf("xa=%d\tya=%d\n",xa,ya);
+		printf("xb=%d\tyb=%d\n",xb,yb);
+	}
+	int d=2*abs(dy)-abs(dx);//initial decision parameter
+	printf("x-plot\ty-plot\td\n");
+	if(flag==0)
+	{
+		
+		printf("%d\t%d\t%d\n",xa,ya,d);
+	}
+	else
+	{
+		printf("%d\t%d\t%d\n",ya,xa,d);
+	}
+	
+	while(xb>xa)
+	{
+		
+		if(d<0)
+		{
+			xa=xa+1;
+			d=d+2*abs(dy);
+			if(flag==0)
+			{
+				printf("%d\t%d\t%d\n",xa,ya,d);
+			}
+			else
+			{
+				printf("%d\t%d\t%d\n",ya,xa,d);
+			}
+		}
+		else 
+		{
+			xa=xa+1;
+			if((dx>0 && dy>0)||(dx<0 && dy<0))
+			{
+				ya=ya+1;
+			}
+			else
+			{
+				ya=ya-1;
+			}
+			d=d+(2*abs(dy)-2*abs(dx));
+			if(flag==0)
+			{
+				printf("%d\t%d\t%d\n",xa,ya,d);
+			}
+			else
+			{
+				printf("%d\t%d\t%d\n",ya,xa,d);
+			}
+		}
+}
+
+}
+
+int main()
+{
+	int xa,ya,xb,yb;
+	
+	printf("\nFirst coordinates(xa,ya):");
+	scanf("%d%d",&xa,&ya);
+	
+	printf("\nSecond coordinates(xb,yb):");
+	scanf("%d%d",&xb,&yb);
+	
+	int dy,dx;
+	dx=xb-xa;
+	dy=yb-ya;
+	
+	if(abs(dx)>abs(dy))
+	{
+		Breline(xa,ya,xb,yb);
+	}
+	else
+	{
+		flag=1;
+		Breline(ya,xa,yb,xb);
+	}
+	
+	return 0;
+}

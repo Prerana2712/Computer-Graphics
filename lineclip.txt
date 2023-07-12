@@ -1,0 +1,164 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int xmin,ymin,xmax,ymax;
+int i,j;
+
+struct line
+{
+	int x,y;
+	int binary[4];
+	
+}p1,p2;
+/*
+void outcode( struct line *p)
+{
+	for(int i=0;i<4;i++)
+	{
+		p->binary[i]=0;
+	}
+	if(p->x < xmin)
+	{
+		p->binary[3]=1;
+		
+	}
+	if(p->x > xmax)
+	{
+		p->binary[2]=1;
+		
+	}
+	if(p->y < ymin)
+	{
+		p->binary[1]=1;
+		
+	}
+	if(p->y > ymax)
+	{
+		p->binary[0]=1;
+		
+	}
+}
+/*
+void find_intersect( struct line *p)
+{
+	float m;
+	m=(float)((p2.y-p1.y)/(p2.x-p1.x));
+	if(p->binary[0]=1)
+	{
+		p->y=ymax;
+		p->x=p1.x+((p2.y-p1.y)/m);
+		
+	}
+	else if( p->binary[1]=1)
+	{
+		p->y=ymin;
+		p->x=p1.x+((p2.y-p1.y)/m);
+	}
+	else if(p->binary[2]=1)
+	{
+		p->x=xmax;
+		p->y=p1.y+(m*(p2.x-p1.x));
+	}
+	else if(p->binary[3]=1)
+	{
+		p->x=xmin;
+		p->y=p1.y+(m*(p2.x-p1.x));
+	}
+}
+
+void calculate()
+{
+	for(int i=0;i<4;i++)
+	{
+		if(p1.binary[i]==1 && p2.binary[i]==1)
+		{
+			find_intersect(&p1);
+			find_intersect(&p2);	
+		}
+		else
+		{
+		
+			if(p1.binary[i]==1 )
+			{
+				find_intersect(&p1);
+			}
+			if(p2.binary[i]==1 )
+			{
+				find_intersect(&p2);
+			}
+		}
+}
+void find()
+{
+	int output[4];
+	int flag;
+	for(int i=0;i<4;i++)
+	{
+		output[i]=p1.binary[i] && p2.binary[i];
+		
+		if(output[i]==1)
+		{
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1)
+	{
+		printf("Line is not visible hence rejected");
+		
+	}
+	else
+	{
+		calculate();
+	}
+}
+
+void check()
+{
+	int flag;
+	for(int i=0;i<4;i++)
+	{
+		if(p1.binary[i] == 0 && p2.binary[i] == 0)
+		{
+			flag=0;
+		}
+		else 
+		{
+			flag=1;
+			break;
+		}
+	}
+	if(flag==0)
+	{
+		printf("Line is completely visible and accepted");
+		
+	}
+	else
+	{
+		printf("Line is partially accepted or rejected");
+	//	find();
+	}
+}
+*/
+int main()
+{
+	printf("Enter the window coordinates xmin,ymin:");
+	scanf("%d%d",xmin,ymin);
+	
+	printf("Enter the window coordinates xmax,ymax:");
+	scanf("%d%d",xmax,ymax);
+	
+	printf("Enter the line P1 coordinates x1,y1:");
+	scanf("%d%d",p1.x,p1.y);
+	
+	printf("Enter the line P2 coordinates x2,y2:");
+	scanf("%d%d",p2.x,p2.y);
+	
+
+	
+//	outcode(&p1);
+//	outcode(&p2);
+	
+//	check();
+	
+}

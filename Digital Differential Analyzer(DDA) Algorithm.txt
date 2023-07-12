@@ -1,0 +1,57 @@
+//                                       Assignment no-1
+// Name- Prerana Rajesh Gajare      Class-SEIT      RollNo-SI41  
+
+//Digital Differential Analyzer(DDA) Algorithm
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int ROUND(float a)
+{
+ 	return(a+0.5);
+ 	
+}
+DDAline(int xa,int ya,int xb,int yb)
+{
+	int steps,dy,dx;
+	dx=xb-xa;
+	dy=yb-ya;
+	
+	if(abs(dx)>abs(dy))
+	{
+		steps=abs(dx);//Gentle Slope	
+	}
+	else 
+	{
+		steps=abs(dy);//Sharp Slope
+	}
+	
+	float xincrement,yincrement;
+	xincrement=(float)(dx)/steps;
+	yincrement=(float)(dy)/steps;
+	
+	float x=xa,y=ya;
+	
+	printf("\tx\t\ty\t\tx-plot\ty-plot\n");
+	printf("\t%f\t%f\t%d\t%d\n",x,y,x,y);
+	for(int i=0;i<steps;i++)
+	{
+		x=x+xincrement;
+		y=y+yincrement;
+		printf("\t%f\t%f\t%d\t%d\n",x,y,ROUND(x),ROUND(y));
+	}
+}
+
+int main()
+{
+	int xa,ya,xb,yb;
+	
+	printf("\nFirst coordinates(xa,ya):");
+	scanf("%d%d",&xa,&ya);
+	
+	printf("\nSecond coordinates(xb,yb):");
+	scanf("%d%d",&xb,&yb);
+	
+	DDAline(xa,ya,xb,yb);
+	return 0;
+}
